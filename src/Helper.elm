@@ -28,17 +28,26 @@ evalChars list funTrans =
 --HTML
 
 
+headers : String -> Html.Html msg
+headers algo =
+    Html.div []
+        [ Html.h1 [] [ Html.text algo ]
+        , Html.h2 [] [ Html.text algo ]
+        , Html.h3 [] [ Html.text algo ]
+        , Html.h4 [] [ Html.text algo ]
+        , Html.h5 [] [ Html.text algo ]
+        , Html.h6 [] [ Html.text algo ]
+        ]
+
+
+hyperlink : String -> String -> Html.Html msg
+hyperlink link nose =
+    Html.a [ Html.Attributes.href link ] [ Html.text nose ]
+
+
 main : Html.Html msg
 main =
     Html.div []
-        [ Html.h1 [] [ Html.text "{param}" ]
-        , Html.h2 [] [ Html.text "{param}" ]
-        , Html.h3 [] [ Html.text "{param}" ]
-        , Html.h4 [] [ Html.text "{param}" ]
-        , Html.h5 [] [ Html.text "{param}" ]
-        , Html.h6 [] [ Html.text "{param}" ]
-        , Html.div []
-            [ Html.a [ Html.Attributes.href "https://upa.edu.mx/" ]
-                [ Html.text "UPA" ]
-            ]
+        [ headers "Titulos"
+        , hyperlink "https://upa.edu.mx/" "Mi escola"
         ]
